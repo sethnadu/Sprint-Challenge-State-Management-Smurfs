@@ -4,6 +4,7 @@ export const FETCH_SMURFS_START = "FETCH_SMURFS_START"
 export const FETCH_SMURFS_SUCCESS = "FETCH_SMURFS_SUCCESS"
 export const FETCH_SMURFS_FAILURE = "FETCH_SMURFS_FAILURE"
 
+export const REMOVE_SMURF = "REMOVE_SMURF";
 
 export const getSmurfs = () => {
     return dispatch => {
@@ -20,3 +21,13 @@ export const getSmurfs = () => {
             })
     }
 }
+
+export const removeSmurf = (removeID) => {
+    return dispatch => {
+        dispatch({type: REMOVE_SMURF});
+        axios
+        .delete(`http://localhost:3333/smurfs/${removeID}`)
+        .then(response => {
+          console.log(response);
+        }); 
+}}

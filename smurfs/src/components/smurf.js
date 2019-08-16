@@ -22,6 +22,7 @@ const Smurf = (props) => {
     const classes = useStyles();
 
 
+    console.log(props.smurf.id)
   return (
     <Card className={classes.card}>
       <CardContent>
@@ -35,6 +36,7 @@ const Smurf = (props) => {
         {props.smurf.height}
         </Typography>
       </CardContent>
+      <button onClick = {() => props.removeSmurf(props.smurf.id)}>Delete Me</button>
       <CardActions>
       
       </CardActions>

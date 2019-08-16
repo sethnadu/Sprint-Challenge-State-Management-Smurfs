@@ -1,7 +1,8 @@
 import {
     FETCH_SMURFS_START,
     FETCH_SMURFS_SUCCESS,
-    FETCH_SMURFS_FAILURE
+    FETCH_SMURFS_FAILURE, 
+    REMOVE_SMURF
 } from "../Actions";
 
 const initialState = {
@@ -33,6 +34,11 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 error: action.payload
+            }
+        case REMOVE_SMURF:
+            return {
+                ...state,
+                smurfs: state.smurfs.filter(id => {return id.id !== action.payload})
             }
         default:
             return state;

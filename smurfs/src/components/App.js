@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {connect} from "react-redux"
 import "./App.css";
 
-import {getSmurfs} from "../Actions"
+import {getSmurfs, removeSmurf} from "../Actions"
 import Form from "./form.js"
 import Smurf from "./smurf.js"
 
@@ -19,7 +19,7 @@ class App extends Component {
         <button onClick = {this.props.getSmurfs}>Get Smurfs!</button>
         <Form />
         {this.props.smurfs.map((item, index) => {
-          return <Smurf key = {index} smurf = {item} />
+          return <Smurf removeSmurf = {this.props.removeSmurf} key = {index} smurf = {item} />
         })}
       </div>
     );
@@ -34,4 +34,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {getSmurfs})(App);
+export default connect(mapStateToProps, {getSmurfs, removeSmurf})(App);
