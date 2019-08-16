@@ -45,9 +45,8 @@ const Header = Styled.h1 `
 
 const SmurfCards = Styled.div `
   display: flex;
-  flex-direction: row wrap;
-  margin: auto;
-
+  flex-flow: row wrap;
+  margin: 20px;
 
 `
 
@@ -73,8 +72,8 @@ class App extends Component {
         <h3>Add a Smurf to the Family!</h3>
         <Form />
         <SmurfCards>
-        {this.props.smurfs.map((item, index) => {
-          return <Smurf removeSmurf = {this.props.removeSmurf} key = {index} smurf = {item} />
+        {this.props.smurfs.map(item => {
+          return <Smurf removeSmurf = {this.props.removeSmurf} key = {item.name} smurf = {item} />
         })}
         </SmurfCards>
       </AppContainer>

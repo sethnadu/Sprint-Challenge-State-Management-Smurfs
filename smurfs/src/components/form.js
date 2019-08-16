@@ -74,7 +74,10 @@ const FormikSmurfForm = withFormik({
     handleSubmit(values, {resetForm}){
         axios
             .post("http://localhost:3333/smurfs", values)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res);
+                alert("Smurf has been created!")
+            })
             .catch(err => console.log(err))
         resetForm()
     }
