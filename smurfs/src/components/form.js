@@ -50,7 +50,7 @@ const SmurfForm = ({errors, touched}) => {
                 <Field className = {classes.Field} type= "text" name = "height" placeholder = "Smurf's Height"></Field>
                 {touched.height && errors.height && <p className = {classes.FieldEdits}>{errors.height}</p>}
                 <div>
-                <button className = {classes.Button} type="submit">Submit</button>
+                <button className = {classes.Button} type="submit">Add To Family</button>
                 </div>
             </Form>
         </>
