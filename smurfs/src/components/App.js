@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {connect} from "react-redux"
 import "./App.css";
 import Styled from "styled-components";
+import Loader from "react-loader-spinner";
 
 import {getSmurfs, removeSmurf} from "../Actions"
 
@@ -64,7 +65,11 @@ class App extends Component {
       <AppContainer className="App">
         <Header>SMURFS! 2.0 W/ Redux</Header>
         <Image src = {smurfsImage} alt = "Smurfs Family" />
-        <GetSmurfsButton onClick = {this.props.getSmurfs}>Get Smurfs!</GetSmurfsButton>
+        <GetSmurfsButton onClick = {this.props.getSmurfs}>{this.props.isLoading ? (
+        <Loader type="ThreeDots" color="#e22121" height={15} width={100} />
+      ) : (
+        "Get Smurfs!"
+      )}</GetSmurfsButton>
         <h3>Add a Smurf to the Family!</h3>
         <Form />
         <SmurfCards>
