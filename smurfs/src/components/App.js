@@ -47,6 +47,7 @@ const SmurfCards = Styled.div `
   display: flex;
   flex-flow: row wrap;
   margin: 20px;
+  justify-content: space-evenly;
 
 `
 
