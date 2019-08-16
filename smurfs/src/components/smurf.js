@@ -7,14 +7,23 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     card: {
-      minWidth: 275,
+      width: 275,
+      margin: "20px",
+      backgroundColor: "#00b9ef",
+      color: "white"
     },
     title: {
       fontSize: 14,
     },
     pos: {
       marginBottom: 12,
+      color: "#e52103"
     },
+    deleteButton: {
+        color: "#e52103",
+        border: "2px solid #e52103",
+        borderRadius: "10px"
+    }
   });
   
 const Smurf = (props) => {
@@ -27,16 +36,16 @@ const Smurf = (props) => {
     <Card className={classes.card}>
       <CardContent>
         <Typography variant="h5" component="h2">
-          {props.smurf.name}
+        {props.smurf.name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-        {props.smurf.age}
+        Age:  {props.smurf.age}
         </Typography>
         <Typography variant="body2" component="p">
-        {props.smurf.height}
+        Height: {props.smurf.height}
         </Typography>
       </CardContent>
-      <button onClick = {() => props.removeSmurf(props.smurf.id)}>Delete Me</button>
+      <button className={classes.deleteButton} onClick = {() => props.removeSmurf(props.smurf.id)}>Delete Me</button>
       <CardActions>
       
       </CardActions>

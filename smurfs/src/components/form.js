@@ -3,20 +3,55 @@ import axios from "axios"
 import {Form, Field, withFormik} from "formik"
 import * as Yup from 'yup';
 
+import { makeStyles } from '@material-ui/core/styles';
 
+
+const useStyles = makeStyles({
+    MainForm: {
+        display: "flex",
+        flexDirection: "column",
+        margin: " 20px auto ",
+        width: "500px",
+        alignItems: "center"
+    },
+    Field: {
+        width: "200px",
+        height: "20px",
+        textAlign: "center",
+        padding: "5px",
+        margin: "10px"
+    },
+    FieldEdits: {
+        marginTop: "-10px",
+        marginBottom: "-10px",
+        color: "#e52103",
+        fontSize: ".7rem",
+        fontWeight: "bold"
+    },
+    Button: {
+        margin: "30px auto",
+        width: "100px",
+        padding: "5px 10px",
+        color: "#00b9ef",
+        border: "2px solid #e52103",
+        borderRadius: "10px"
+    }
+  });
 
 const SmurfForm = ({errors, touched}) => {
-    
+    const classes = useStyles();
     return (
         <>
-            <Form>
-                <Field type= "text" name = "name" placeholder = "Smurf's Name"></Field>
-                {touched.name && errors.name && <p >{errors.name}</p>}
-                <Field type= "text" name = "age" placeholder = "Smurf's Age"></Field>
-                {touched.age && errors.age && <p >{errors.age}</p>}
-                <Field type= "text" name = "height" placeholder = "Smurf's Height"></Field>
-                {touched.height && errors.height && <p >{errors.height}</p>}
-                <button type="submit">Submit</button>
+            <Form className = {classes.MainForm}>
+                <Field className = {classes.Field} type= "text" name = "name" placeholder = "Smurf's Name"></Field>
+                {touched.name && errors.name && <p className = {classes.FieldEdits} >{errors.name}</p>}
+                <Field className = {classes.Field} type= "text" name = "age" placeholder = "Smurf's Age"></Field>
+                {touched.age && errors.age && <p className = {classes.FieldEdits}>{errors.age}</p>}
+                <Field className = {classes.Field} type= "text" name = "height" placeholder = "Smurf's Height"></Field>
+                {touched.height && errors.height && <p className = {classes.FieldEdits}>{errors.height}</p>}
+                <div>
+                <button className = {classes.Button} type="submit">Submit</button>
+                </div>
             </Form>
         </>
     )
@@ -31,7 +66,7 @@ const FormikSmurfForm = withFormik({
         }
     },
 
-    validationShema: Yup.object().shape({
+    validationSchema: Yup.object().shape({
         name: Yup.string().required("Name is required"),
         age: Yup.string().required("Age is required" ),
         height: Yup.string().required("height is required" )
