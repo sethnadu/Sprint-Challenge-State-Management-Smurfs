@@ -17,7 +17,8 @@ const useStyles = makeStyles({
     },
   });
   
-const Smurf = () => {
+const Smurf = (props) => {
+    console.log(props)
     const classes = useStyles();
 
 
@@ -25,15 +26,13 @@ const Smurf = () => {
     <Card className={classes.card}>
       <CardContent>
         <Typography variant="h5" component="h2">
-          be
-          nev
-          lent
+          {props.smurf.name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          adjective
+        {props.smurf.age}
         </Typography>
         <Typography variant="body2" component="p">
-          well meaning and kindly.
+        {props.smurf.height}
         </Typography>
       </CardContent>
       <CardActions>
